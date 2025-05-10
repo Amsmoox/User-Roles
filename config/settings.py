@@ -172,7 +172,10 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS', default=[
     "http://localhost:8000",
     "http://127.0.0.1:8000",
+    "http://localhost:3000",  # Add React development server
+    "http://127.0.0.1:3000",  # Add React development server
 ])
+CORS_ALLOW_CREDENTIALS = True
 
 # Custom user model
 AUTH_USER_MODEL = 'accounts.User'
