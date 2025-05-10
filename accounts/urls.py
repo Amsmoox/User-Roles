@@ -4,6 +4,10 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from .api import (
     UserViewSet, RoleViewSet, PermissionViewSet, PermissionChangeLogViewSet
 )
+from .auth import (
+    RegisterView, LoginView, LogoutView, 
+    PasswordResetRequestView, PasswordResetConfirmView, PasswordChangeView
+)
 
 app_name = 'accounts'
 
@@ -17,6 +21,14 @@ router.register(r'permission-logs', PermissionChangeLogViewSet)
 # Standard URL patterns
 urlpatterns = [
     path('', include(router.urls)),
+    
+    # Authentication endpoints
+    path('auth/register/', RegisterView.as_view(), name='register'),
+    path('auth/login/', LoginView.as_view(), name='login'),
+    path('auth/logout/', LogoutView.as_view(), name='logout'),
+    path('auth/password/reset/', PasswordResetRequestView.as_view(), name='password_reset'),
+    path('auth/password/reset/confirm/', PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('auth/password/change/', PasswordChangeView.as_view(), name='password_change'),
 ]
 
 # Optional format suffix support (e.g. /users.json)
