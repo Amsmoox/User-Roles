@@ -284,4 +284,15 @@ POST /api/v1/accounts/roles/1/add_permissions/
 {
   "permission_ids": [1, 2, 3]
 }
-``` 
+```
+
+## Authentication API
+
+This app also provides complete authentication functionality:
+
+- **User Registration**
+- **Email-based Login/Logout**
+- **Password Reset**
+- **Password Change**
+
+For detailed documentation of authentication endpoints, see [AUTH_README.md](AUTH_README.md). 
