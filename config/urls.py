@@ -26,6 +26,7 @@ API_DESCRIPTION = 'A Web API for managing users and roles.'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/accounts/', include('accounts.urls')),
 ]
 
 if settings.DEBUG:
